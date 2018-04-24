@@ -7,7 +7,7 @@
 import_nodes(path)
 }
 \arguments{
-\item{path}{Path to HYDRUS 2D/3D project.}
+\item{path}{Path to HYDRUS 2D/3D project containing 'MESHTRIA.TXT'.}
 }
 \value{
 Returns a tibble with 3 columns: 'nodeID', 'x', 'y' with 'x' and 'y'
