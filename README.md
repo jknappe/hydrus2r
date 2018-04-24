@@ -24,10 +24,10 @@ After successfully running a simulation in HYDRUS 2D/3D, export the results to A
 
 ### Import mesh data
 
-Use `import_nodes()` to import mesh node coordinates.
+- Use `import_nodes()` to import mesh node coordinates.
 
 ### Import simulation results
 
-Use `import_head()` to import pressure head results.
-Use `import_vwc()` to import volumetric water content (VWC) results.
-Use `import_velocity()` to import velocity results.
+- Use `import_head()` to import pressure head results.
+- Use `import_vwc()` to import volumetric water content (VWC) results.
+- Use `import_velocity()` to import velocity results.
