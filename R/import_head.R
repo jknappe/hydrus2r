@@ -1,0 +1,91 @@
+#' Import pressure head data from HYDRUS output
+#'
+#' This function imports pressure head data from a simulation successfully run in HYDRUS 2D/3D.
+#' Simulation results ('Mesh Information' and 'Pressure Heads') have to be exported to ASCII
+#' prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
+#' @param path Path to HYDRUS 2D/3D project containing 'MESHTRIA.TXT' and 'H.TXT'.
+#' @keywords
+#'   IO
+#' @return
+#'   Returns a tibble with 5 columns.
+#'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information'.
+#'   'x': x-coordinate of HYDRUS mesh node.
+#'   'y': y-coordinate of HYDRUS mesh node.
+#'   'parameter': 'head' for pressure head.
+#'   'value': numerical value in units defined in HYDRUS ([L] for pressure head)
+#' @examples
+#'   import_head(path = "C://HYDRUS_Project/Project_Name")
+#' @references
+#'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
+#' @author
+#'   Jan Knappe, \email{jan.knappe@@gmail.com}
+#' @import
+#'   dplyr tidyr stringr readr tibble
+#' @export
+
+import_head <- function(path) {
+  #
+  # Preamble
+  # ~~~~~~~~~~~~~~~~
+  #
+  # file name of mesh file
+  headFile <-
+    if (substring(path, nchar(path)) == "/") {
+      # path provided with trailing '/'
+      paste0(path, "H.TXT")
+    } else {
+      # path provided without trailing '/'
+      paste0(path, "/H.TXT")
+    }
+  #
+  # Error handling
+  # ~~~~~~~~~~~~~~~~
+  #
+  # project folder must exists
+  if (!dir.exists(path)) {
+    stop("Can't find path to HYDRUS project. Does variable 'path' point to an existing HYDRUS project?")
+  }
+  # MESHTRIA.TXT must exist in the project folder
+  if (!file.exists(headFile)) {
+    stop("HYDRUS project folder does not contain pressure head data. Export simulation results through the HYDRUS GUI.")
+  }
+  #
+  # Function
+  # ~~~~~~~~~~~~~~~~
+  #
+  # import node coordinates
+  nodeCoords <-
+    import_nodes(path = path)
+  #
+  # import VWC data
+  headImport <-
+    # read HYDRUS output file and split by word into tibble
+    list(value = (read_file(headFile) %>%
+                    str_split(boundary("word")))[[1]]
+    ) %>%
+    as_tibble() %>%
+    # extreact timestep information and move into new column
+    mutate(timestep = ifelse(value %in% "Time", lead(value), NA)) %>%
+    fill(timestep) %>%
+    # remove non-data rows
+    mutate(remove = ifelse(value %in% "Time", TRUE, FALSE),
+           remove = ifelse(remove, TRUE, lag(remove)))  %>%
+    filter(!remove) %>%
+    select(-remove) %>%
+    # parse to numeric
+    mutate(timestep = as.numeric(timestep),
+           value = as.numeric(value),
+           parameter = "head") %>%
+    # add nodeID information %>%
+    group_by(timestep) %>%
+    mutate(nodeID = row_number(timestep)) %>%
+    ungroup()
+  #
+  # join with node coordinates
+  headData =
+    headImport %>%
+    left_join(nodeCoords,
+              by = "nodeID") %>%
+    select(timestep, x, y, parameter, value)
+}
+#~~~~~~~~
