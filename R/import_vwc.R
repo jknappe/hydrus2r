@@ -28,7 +28,17 @@ import_vwc <- function(path) {
   # Preamble
   # ~~~~~~~~~~~~~~~~
   #
-  # file name of mesh file
+  # path name of mesh file
+  meshFile <-
+    if (substring(path, nchar(path)) == "/") {
+      # path provided with trailing '/'
+      paste0(path, "MESHTRIA.TXT")
+    } else {
+      # path provided without trailing '/'
+      paste0(path, "/MESHTRIA.TXT")
+    }
+  #
+  # path name of result file
   vwcFile <-
     if (substring(path, nchar(path)) == "/") {
       # path provided with trailing '/'
@@ -46,6 +56,10 @@ import_vwc <- function(path) {
     stop("Can't find path to HYDRUS project. Does variable 'path' point to an existing HYDRUS project?")
   }
   # MESHTRIA.TXT must exist in the project folder
+  if (!file.exists(meshFile)) {
+    stop("HYDRUS project folder does not contain mesh information. Export mesh information through the HYDRUS GUI.")
+  }
+  # simulation results must exist in the project folder
   if (!file.exists(vwcFile)) {
     stop("HYDRUS project folder does not contain water content data. Export simulation results through the HYDRUS GUI.")
   }

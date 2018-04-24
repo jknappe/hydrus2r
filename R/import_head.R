@@ -28,7 +28,17 @@ import_head <- function(path) {
   # Preamble
   # ~~~~~~~~~~~~~~~~
   #
-  # file name of mesh file
+  # path name of mesh file
+  meshFile <-
+    if (substring(path, nchar(path)) == "/") {
+      # path provided with trailing '/'
+      paste0(path, "MESHTRIA.TXT")
+    } else {
+      # path provided without trailing '/'
+      paste0(path, "/MESHTRIA.TXT")
+    }
+  #
+  # path name of results file
   headFile <-
     if (substring(path, nchar(path)) == "/") {
       # path provided with trailing '/'

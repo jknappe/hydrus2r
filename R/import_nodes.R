@@ -22,7 +22,7 @@ import_nodes <- function(path) {
   # Preamble
   # ~~~~~~~~~~~~~~~~
   #
-  # file name of mesh file
+  # path name of mesh file
   meshFile <-
     if (substring(path, nchar(path)) == "/") {
       # path provided with trailing '/'
