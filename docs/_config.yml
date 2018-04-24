@@ -1,11 +1,7 @@
----
 theme: jekyll-theme-minimal
 title: hydrusImport
 description: An R package to import HYDRUS 2D/3D simulation results into R
 
-logo: [Location of the logo]
-show_downloads: ["true" or "false" to indicate whether to provide a download URL]
-google_analytics: [Your Google Analytics tracking ID]
----
-
-test
+logo: hydrusImport-logo.png
+show_downloads: true
+google_analytics: "UA-111480581-1"
