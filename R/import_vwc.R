@@ -14,7 +14,7 @@
 #'   'parameter': 'vwc' for volumetric water content.
 #'   'value': numerical value in units defined in HYDRUS (dimensionless for VWC)
 #' @examples
-#'   import_nodes(path = "C://HYDRUS_Project/Project_Name")
+#'   import_vwc(path = "C://HYDRUS_Project/Project_Name")
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author
@@ -47,7 +47,7 @@ import_vwc <- function(path) {
   }
   # MESHTRIA.TXT must exist in the project folder
   if (!file.exists(vwcFile)) {
-    stop("HYDRUS project folder does not contain mesh information. Export mesh information through the HYDRUS GUI.")
+    stop("HYDRUS project folder does not contain water content data. Export simulation results through the HYDRUS GUI.")
   }
   #
   # Function
