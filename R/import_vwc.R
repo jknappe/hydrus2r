@@ -19,20 +19,14 @@
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author
 #'   Jan Knappe, \email{jan.knappe@@gmail.com}
+#' @import
+#'   dplyr tidyr stringr readr tibble
 #' @export
 
 import_vwc <- function(path) {
   #
   # Preamble
   # ~~~~~~~~~~~~~~~~
-  #
-  # load required packages
-  library(readr)
-  library(magrittr)
-  library(dplyr)
-  library(tidyr)
-  library(stringr)
-  library(tibble)
   #
   # file name of mesh file
   vwcFile <-
@@ -61,37 +55,37 @@ import_vwc <- function(path) {
   #
   # import node coordinates
   nodeCoords <-
-    hydrusImport::import_nodes(path = path)
+    import_nodes(path = path)
   #
   # import VWC data
   vwcImport <-
     # read HYDRUS output file and split by word into tibble
-    list(value = (readr::read_file(vwcFile) %>%
-                    stringr::str_split(stringr::boundary("word")))[[1]]
+    list(value = (read_file(vwcFile) %>%
+                    str_split(boundary("word")))[[1]]
     ) %>%
-    tibble::as_tibble() %>%
+    as_tibble() %>%
     # extreact timestep information and move into new column
-    dplyr::mutate(timestep = ifelse(value %in% "Time", dplyr::lead(value), NA)) %>%
-    tidyr::fill(timestep) %>%
+    mutate(timestep = ifelse(value %in% "Time", lead(value), NA)) %>%
+    fill(timestep) %>%
     # remove non-data rows
-    dplyr::mutate(remove = ifelse(value %in% "Time", TRUE, FALSE),
-           remove = ifelse(remove, TRUE, dplyr::lag(remove)))  %>%
-    dplyr::filter(!remove) %>%
-    dplyr::select(-remove) %>%
+    mutate(remove = ifelse(value %in% "Time", TRUE, FALSE),
+           remove = ifelse(remove, TRUE, lag(remove)))  %>%
+    filter(!remove) %>%
+    select(-remove) %>%
     # parse to numeric
-    dplyr::mutate(timestep = as.numeric(timestep),
+    mutate(timestep = as.numeric(timestep),
            value = as.numeric(value),
            parameter = "vwc") %>%
     # add nodeID information %>%
-    dplyr::group_by(timestep) %>%
-    dplyr::mutate(nodeID = dplyr::row_number(timestep)) %>%
-    dplyr::ungroup()
+    group_by(timestep) %>%
+    mutate(nodeID = row_number(timestep)) %>%
+    ungroup()
   #
   # join with node coordinates
   vwcData =
     vwcImport %>%
-    dplyr::left_join(nodeCoords,
-                     by = "nodeID") %>%
+    left_join(nodeCoords,
+              by = "nodeID") %>%
     select(timestep, x, y, parameter, value)
 }
 #~~~~~~~~

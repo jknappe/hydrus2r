@@ -22,12 +22,6 @@ import_nodes <- function(path) {
   # Preamble
   # ~~~~~~~~~~~~~~~~
   #
-  # load required packages
-  library(readr)
-  library(magrittr)
-  library(dplyr)
-  library(tidyr)
-  #
   # file name of mesh file
   meshFile <-
     if (substring(path, nchar(path)) == "/") {
@@ -58,23 +52,23 @@ import_nodes <- function(path) {
   #
   # import meshFile
   suppressWarnings( # ignore parsing warnings
-  nodeInput <-
-    readr::read_table2(meshFile, skip = 1, col_names = nodeCols,
-                       col_types = cols(
-                         nodeID = col_character(),
-                         x = col_character(),
-                         y = col_character()
-                       )) )
+    nodeInput <-
+      read_table2(meshFile, skip = 1, col_names = nodeCols,
+                  col_types = cols(
+                    nodeID = col_character(),
+                    x = col_character(),
+                    y = col_character()
+                  )) )
   # extract node corrdinates
   nodeCoords <-
     nodeInput %>%
-    dplyr::mutate(nonNodes = ifelse(nodeID == "Edges", FALSE, NA)) %>%
-    tidyr::fill(nonNodes) %>%
-    dplyr::filter(is.na(nonNodes)) %>%
-    dplyr::select(-nonNodes) %>%
-    dplyr::mutate(nodeID = as.integer(nodeID),
-                  x      = as.numeric(x),
-                  y      = as.numeric(y))
+    mutate(nonNodes = ifelse(nodeID == "Edges", FALSE, NA)) %>%
+    fill(nonNodes) %>%
+    filter(is.na(nonNodes)) %>%
+    select(-nonNodes) %>%
+    mutate(nodeID = as.integer(nodeID),
+           x      = as.numeric(x),
+           y      = as.numeric(y))
   #
   nodeCoords
 }
