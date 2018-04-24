@@ -20,7 +20,7 @@ library(hydrusImport)
 
 After successfully running a simulation in HYDRUS 2D/3D, export the results to ASCII using the HYDRUS 2D/3D GUI.
 
-![HYDRUS: Save results to ASCII](http://www.janknappe.com/assets/img/github/hydrusImport-savingToAscii.gif = 500x)
+<img src = "http://www.janknappe.com/assets/img/github/hydrusImport-savingToAscii.gif" alt = "HYDRUS: Save results to ASCII"/>
 
 ### Import mesh data
 
