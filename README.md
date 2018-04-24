@@ -31,3 +31,9 @@ After successfully running a simulation in HYDRUS 2D/3D, export the results to A
 - Use `import_head()` to import pressure head results.
 - Use `import_vwc()` to import volumetric water content (VWC) results.
 - Use `import_velocity()` to import velocity results.
+
+## To do
+
+- mesh data: `import_edges()`, `import_triangles()`, 3D meshes (3D-Standard, 3D-Lite)
+- sim data: `import_concentration()`, `import_temperature()`, `import_particles()`
+- improvements: use import flow from velocities also in H, TH (maybe nodes) to prevent small numbers being renered wrong (e-00X numbers)
