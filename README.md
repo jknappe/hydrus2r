@@ -36,6 +36,9 @@ After successfully running a simulation in HYDRUS 2D/3D, export the results to A
 - Use `h2d_head()` to import pressure head results.
 - Use `h2d_vwc()` to import volumetric water content (VWC) results.
 - Use `h2d_velocity()` to import velocity results.
+- Use `h2d_concentration()` to import concentraion results.
+- Use `h2d_temperature()` to import temperature results.
+- Use `h2d_particle()` to import particle trajectory results.
 
 ## To do
 

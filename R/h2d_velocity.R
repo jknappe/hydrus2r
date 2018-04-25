@@ -1,4 +1,4 @@
-#' Import velocity data from HYDRUS output
+#' Import velocity data from HYDRUS 2D output
 #'
 #' This function imports velocity data from a simulation successfully run in HYDRUS 2D.
 #' Use 'h3d_' functions to import HYDRUS 3D results.
@@ -9,12 +9,12 @@
 #'   IO
 #' @return
 #'   Returns a tibble with 6 columns.
-#'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information'.
-#'   'x': x-coordinate of HYDRUS mesh node.
-#'   'y': y-coordinate of HYDRUS mesh node.
-#'   'parameter': 'velocity' for velocities.
-#'   'value': numerical value for magnitude of velocity vector in units defined in HYDRUS [L T^{-1}]
-#'   'direction' numerical value for direction of velocity vector
+#'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information',
+#'   'x': x-coordinate of mesh node,
+#'   'y': y-coordinate of mesh node,
+#'   'parameter': 'velocity' for velocities,
+#'   'value': numerical value for magnitude of velocity vector in units defined in HYDRUS [L T^{-1}],
+#'   'direction' numerical value for direction of velocity vector.
 #' @examples
 #'   h2d_velocity(path = "data")
 #' @references
@@ -73,9 +73,9 @@ h2d_velocity <- function(path) {
   nodeCoords <-
     h2d_nodes(path = path)
   #
-  # import VWC data
+  # import data
   velocityImport <-
-    # read HYDRUS output file and split by word into tibble
+    # read HYDRUS output
     velocityFile %>%
     readChar(., nchars = file.info(.)$size) %>%
     str_replace_all(pattern = " ", "\r\n") %>%
@@ -112,5 +112,7 @@ h2d_velocity <- function(path) {
     left_join(nodeCoords,
               by = "nodeID") %>%
     select(timestep, x, y, parameter, value, direction)
+  #
+  velocityData
 }
 #~~~~~~~~
