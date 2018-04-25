@@ -74,16 +74,17 @@ import_vwc <- function(path) {
   # import VWC data
   vwcImport <-
     # read HYDRUS output file and split by word into tibble
-    list(value = (read_file(vwcFile) %>%
-                    str_split(boundary("word")))[[1]]
-    ) %>%
-    as_tibble() %>%
+    vwcFile %>%
+    readChar(., nchars = file.info(.)$size) %>%
+    str_replace_all(pattern = " ", "\r\n") %>%
+    read_csv(col_names = "value") %>%
     # extreact timestep information and move into new column
-    mutate(timestep = ifelse(value %in% "Time", lead(value), NA)) %>%
+    mutate(timestep = ifelse(value %in% "Time", lead(value, 2), NA)) %>%
     fill(timestep) %>%
     # remove non-data rows
     mutate(remove = ifelse(value %in% "Time", TRUE, FALSE),
-           remove = ifelse(remove, TRUE, lag(remove)))  %>%
+           remove = ifelse(lag(value, 1) %in% "Time", TRUE, remove),
+           remove = ifelse(lag(value, 2) %in% "Time", TRUE, remove))  %>%
     filter(!remove) %>%
     select(-remove) %>%
     # parse to numeric
