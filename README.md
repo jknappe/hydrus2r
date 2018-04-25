@@ -26,15 +26,15 @@ After successfully running a simulation in HYDRUS 2D/3D, export the results to A
 
 - Use `h2d_nodes()` to import mesh node coordinates.
 - Use `h2d_edges()` to import mesh edge information.
-- Use `h2d_triangles()` to import mesh triangle  information (not implemented yet).
+- Use `h2d_triangles()` to import mesh triangle  information (**not yet implemented**).
 
 - Use `h2d_head()` to import pressure head results.
 - Use `h2d_vwc()` to import volumetric water content (VWC) results.
 - Use `h2d_velocity()` to import velocity results.
-- Use `h2d_concentration()` to import concentraion results (not implemented yet).
+- Use `h2d_concentration()` to import concentraion results.
 - Use `h2d_temperature()` to import temperature results.
-- Use `h2d_particle()` to import particle trajectory results (not implemented yet).
+- Use `h2d_particle()` to import particle trajectory results (**not yet implemented**).
 
 ### `h3d_`-functions for HYDRUS 3D
 
-not implemented yet
+**not yet implemented**
