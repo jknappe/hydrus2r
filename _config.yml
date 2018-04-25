@@ -1,7 +1,7 @@
 theme: jekyll-theme-minimal
-title: hydrusImport
+title: hydrus2r
 description: An R package to import HYDRUS 2D/3D simulation results into R
 
-logo: docs/hydrusImport-logo.png
+logo: docs/hydrus2r-logo.png
 show_downloads: true
 google_analytics: "UA-111480581-1"
