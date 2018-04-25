@@ -15,9 +15,27 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="hydrus2r-logo.svg">
+   sodipodi:docname="hydrus2r-logo.svg"
+   inkscape:export-filename="E:\OneDrive\PhD Workfiles\PhD_TCD\Coding\R\hydrus2r\docs\hydrus2r-logo.png"
+   inkscape:export-xdpi="25.4"
+   inkscape:export-ydpi="25.4">
   <defs
-     id="defs4" />
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lstart"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path4209"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#f4b308;stroke-width:1pt;stroke-opacity:0.9621451;fill:#f4b308;fill-opacity:0.9621451"
+         transform="scale(0.8) translate(12.5,0)" />
+    </marker>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,8 +44,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.36833333"
-     inkscape:cx="777.75591"
-     inkscape:cy="900"
+     inkscape:cx="789.11082"
+     inkscape:cy="839.23586"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -97,8 +115,8 @@
        id="path4197"
        inkscape:connector-curvature="0" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#f4b308;stroke-width:26.51102448;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.96078432"
-       d="m 49.91342,61.77279 284.12254,0 c 0,0 176.61672,-3e-6 268.76458,226.53017 92.14785,226.5301 813.97266,234.20914 813.97266,234.20914"
+       style="fill:none;fill-rule:evenodd;stroke:#f4b308;stroke-width:70.86614227;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 49.91342,61.77279 197.24472,0 c 0,0 194.56649,-22.864156 369.21706,272.68402 168.8294,285.69744 800.398,188.05529 800.398,188.05529"
        id="path4203"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccsc" />
