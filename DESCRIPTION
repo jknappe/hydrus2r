@@ -13,7 +13,8 @@ Imports:
   tidyr, 
   stringr, 
   readr, 
-  tibble
+  tibble,
+  purrr
 License: MIT
 URL:
   http://janknappe.com/hydrus2r
