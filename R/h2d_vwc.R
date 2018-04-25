@@ -15,7 +15,7 @@
 #'   'parameter': 'vwc' for volumetric water content.
 #'   'value': numerical value in units defined in HYDRUS (dimensionless for VWC)
 #' @examples
-#'   import_vwc(path = "C://HYDRUS_Project/Project_Name")
+#'   h2d_vwc(path = "data")
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author

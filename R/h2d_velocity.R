@@ -16,7 +16,7 @@
 #'   'value': numerical value for magnitude of velocity vector in units defined in HYDRUS [L T^{-1}]
 #'   'direction' numerical value for direction of velocity vector
 #' @examples
-#'   import_head(path = "C://HYDRUS_Project/Project_Name")
+#'   h2d_velocity(path = "data")
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author

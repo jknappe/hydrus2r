@@ -11,7 +11,7 @@
 #'   Returns a tibble with 3 columns: 'nodeID', 'x', 'y' with 'x' and 'y'
 #'   being the cartesian coordinates of node 'nodeID'.
 #' @examples
-#'   import_nodes(path = "C://HYDRUS_Project/Project_Name")
+#'   h2d_nodes(path = "data")
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author

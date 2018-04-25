@@ -7,7 +7,7 @@
 h2d_vwc(path)
 }
 \arguments{
-\item{path}{Path to HYDRUS 2D/3D project containing 'MESHTRIA.TXT' and 'TH.TXT'.}
+\item{path}{Path to HYDRUS 2D project containing 'MESHTRIA.TXT' and 'TH.TXT'.}
 }
 \value{
 Returns a tibble with 5 columns.
@@ -22,9 +22,6 @@ This function imports volumentric water content (VWC) data from a simulation suc
 Use 'h3d_' functions to import HYDRUS 3D results.
 Simulation results ('Mesh Information' and 'Water Contents') have to be exported to ASCII
 prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
-}
-\examples{
-  import_vwc(path = "C://HYDRUS_Project/Project_Name")
 }
 \references{
 https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf

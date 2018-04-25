@@ -15,7 +15,7 @@
 #'   'parameter': 'head' for pressure head.
 #'   'value': numerical value in units defined in HYDRUS ([L] for pressure head)
 #' @examples
-#'   import_head(path = "C://HYDRUS_Project/Project_Name")
+#'   h2d_head(path = "data")
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author

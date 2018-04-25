@@ -25,6 +25,11 @@ After successfully running a simulation in HYDRUS 2D/3D, export the results to A
 ### Import mesh data
 
 - Use `h2d_nodes()` to import mesh node coordinates.
+- Use `h2d_edges()` to import mesh edge information.
+- `h2d_triangles()`
+- `h3d_nodes()`
+- `h3d_edges()`
+- `h3d_triangles()`
 
 ### Import simulation results
 

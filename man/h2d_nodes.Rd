@@ -7,7 +7,7 @@
 h2d_nodes(path)
 }
 \arguments{
-\item{path}{Path to HYDRUS 2D/3D project containing 'MESHTRIA.TXT'.}
+\item{path}{Path to HYDRUS 2D project containing 'MESHTRIA.TXT'.}
 }
 \value{
 Returns a tibble with 3 columns: 'nodeID', 'x', 'y' with 'x' and 'y'
@@ -18,9 +18,6 @@ This function imports node coordinates from a simulation successfully run in HYD
 Use 'h3d_' functions to import HYDRUS 3D results.
 Simulation results (including mesh information) have to be exported to ASCII
 prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
-}
-\examples{
-  import_nodes(path = "C://HYDRUS_Project/Project_Name")
 }
 \references{
 https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf

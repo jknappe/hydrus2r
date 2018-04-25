@@ -18,6 +18,7 @@
 #'   'rTriangle': number of the right triangle.
 #'   Note: 'roppNode', 'lTriangle', and 'lTriangle' are not always given.
 #' @examples
+#'   h2d_edges(path = "data")
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author
