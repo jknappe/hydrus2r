@@ -17,7 +17,7 @@
 #'   Jan Knappe, \email{jan.knappe@@gmail.com}
 #' @export
 
-import_nodes <- function(path) {
+h2d_nodes <- function(path) {
   #
   # Preamble
   # ~~~~~~~~~~~~~~~~

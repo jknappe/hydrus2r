@@ -23,7 +23,7 @@
 #'   dplyr tidyr stringr readr tibble
 #' @export
 
-import_head <- function(path) {
+h2d_head <- function(path) {
   #
   # Preamble
   # ~~~~~~~~~~~~~~~~
@@ -65,7 +65,7 @@ import_head <- function(path) {
   #
   # import node coordinates
   nodeCoords <-
-    import_nodes(path = path)
+    h2d_nodes(path = path)
   #
   # import VWC data
   headImport <-
