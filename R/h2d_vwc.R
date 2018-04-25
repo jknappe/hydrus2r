@@ -1,6 +1,7 @@
 #' Import water content data from HYDRUS output
 #'
-#' This function imports volumentric water content (VWC) data from a simulation successfully run in HYDRUS 2D/3D.
+#' This function imports volumentric water content (VWC) data from a simulation successfully run in HYDRUS 2D.
+#' Use 'h3d_' functions to import HYDRUS 3D results.
 #' Simulation results ('Mesh Information' and 'Water Contents') have to be exported to ASCII
 #' prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
 #' @param path Path to HYDRUS 2D/3D project containing 'MESHTRIA.TXT' and 'TH.TXT'.

@@ -18,7 +18,8 @@ Returns a tibble with 5 columns.
   'value': numerical value in units defined in HYDRUS ([L] for pressure head)
 }
 \description{
-This function imports pressure head data from a simulation successfully run in HYDRUS 2D/3D.
+This function imports pressure head data from a simulation successfully run in HYDRUS 2D.
+Use 'h3d_' functions to import HYDRUS 3D results.
 Simulation results ('Mesh Information' and 'Pressure Heads') have to be exported to ASCII
 prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
 }

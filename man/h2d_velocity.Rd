@@ -19,7 +19,8 @@ Returns a tibble with 6 columns.
   'direction' numerical value for direction of velocity vector
 }
 \description{
-This function imports velocity data from a simulation successfully run in HYDRUS 2D/3D.
+This function imports velocity data from a simulation successfully run in HYDRUS 2D.
+Use 'h3d_' functions to import HYDRUS 3D results.
 Simulation results ('Mesh Information' and 'Velocities') have to be exported to ASCII
 prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
 }

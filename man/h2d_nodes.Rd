@@ -14,7 +14,8 @@ Returns a tibble with 3 columns: 'nodeID', 'x', 'y' with 'x' and 'y'
   being the cartesian coordinates of node 'nodeID'.
 }
 \description{
-This function imports node coordinates from a simulation successfully run in HYDRUS 2D/3D.
+This function imports node coordinates from a simulation successfully run in HYDRUS 2D.
+Use 'h3d_' functions to import HYDRUS 3D results.
 Simulation results (including mesh information) have to be exported to ASCII
 prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
 }
