@@ -9,11 +9,11 @@
 #'   IO
 #' @return
 #'   Returns a tibble with 5 columns.
-#'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information'.
-#'   'x': x-coordinate of HYDRUS mesh node.
-#'   'y': y-coordinate of HYDRUS mesh node.
-#'   'parameter': 'head' for pressure head.
-#'   'value': numerical value in units defined in HYDRUS ([L] for pressure head)
+#'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information',
+#'   'x': x-coordinate of mesh node,
+#'   'y': y-coordinate of mesh node,
+#'   'parameter': 'head' for pressure head,
+#'   'value': numerical value in units defined in HYDRUS [L].
 #' @examples
 #'   h2d_head(path = "data")
 #' @references
@@ -99,5 +99,7 @@ h2d_head <- function(path) {
     left_join(nodeCoords,
               by = "nodeID") %>%
     select(timestep, x, y, parameter, value)
+  #
+  headData
 }
 #~~~~~~~~

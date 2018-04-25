@@ -9,11 +9,11 @@
 #'   IO
 #' @return
 #'   Returns a tibble with 5 columns.
-#'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information'.
-#'   'x': x-coordinate of HYDRUS mesh node.
-#'   'y': y-coordinate of HYDRUS mesh node.
-#'   'parameter': 'vwc' for volumetric water content.
-#'   'value': numerical value in units defined in HYDRUS (dimensionless for VWC)
+#'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information',
+#'   'x': x-coordinate of mesh node,
+#'   'y': y-coordinate of mesh node,
+#'   'parameter': 'vwc' for volumetric water content,
+#'   'value': numerical value in units defined in HYDRUS [-].
 #' @examples
 #'   h2d_vwc(path = "data")
 #' @references
@@ -103,5 +103,7 @@ h2d_vwc <- function(path) {
     left_join(nodeCoords,
               by = "nodeID") %>%
     select(timestep, x, y, parameter, value)
+  #
+  vwcData
 }
 #~~~~~~~~

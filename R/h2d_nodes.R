@@ -8,8 +8,10 @@
 #' @keywords
 #'   IO
 #' @return
-#'   Returns a tibble with 3 columns: 'nodeID', 'x', 'y' with 'x' and 'y'
-#'   being the cartesian coordinates of node 'nodeID'.
+#'   Returns a tibble with 3 columns.
+#'   'nodeID': nodal number,
+#'   'x': x-coordinate of mesh node,
+#'   'y': y-coordinate of mesh node.
 #' @examples
 #'   h2d_nodes(path = "data")
 #' @references

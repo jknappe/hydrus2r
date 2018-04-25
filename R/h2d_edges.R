@@ -16,7 +16,7 @@
 #'   'roppNode': number of the right opposite node,
 #'   'lTriangle': number of the left triangle,
 #'   'rTriangle': number of the right triangle.
-#'   Note: 'roppNode', 'lTriangle', and 'lTriangle' are not always given.
+#'   Note: 'roppNode', 'lTriangle', and 'lTriangle' are not always defined
 #' @examples
 #'   h2d_edges(path = "data")
 #' @references

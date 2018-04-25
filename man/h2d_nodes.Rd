@@ -2,7 +2,7 @@
 % Please edit documentation in R/h2d_nodes.R
 \name{h2d_nodes}
 \alias{h2d_nodes}
-\title{Import node coordinates from HYDRUS mesh}
+\title{Import node coordinates from HYDRUS 2D mesh}
 \usage{
 h2d_nodes(path)
 }
@@ -10,14 +10,19 @@ h2d_nodes(path)
 \item{path}{Path to HYDRUS 2D project containing 'MESHTRIA.TXT'.}
 }
 \value{
-Returns a tibble with 3 columns: 'nodeID', 'x', 'y' with 'x' and 'y'
-  being the cartesian coordinates of node 'nodeID'.
+Returns a tibble with 3 columns.
+  'nodeID': nodal number,
+  'x': x-coordinate of mesh node,
+  'y': y-coordinate of mesh node.
 }
 \description{
 This function imports node coordinates from a simulation successfully run in HYDRUS 2D.
 Use 'h3d_' functions to import HYDRUS 3D results.
 Simulation results (including mesh information) have to be exported to ASCII
 prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
+}
+\examples{
+  h2d_nodes(path = "data")
 }
 \references{
 https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf

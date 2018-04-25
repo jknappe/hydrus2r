@@ -2,7 +2,7 @@
 % Please edit documentation in R/h2d_velocity.R
 \name{h2d_velocity}
 \alias{h2d_velocity}
-\title{Import velocity data from HYDRUS output}
+\title{Import velocity data from HYDRUS 2D output}
 \usage{
 h2d_velocity(path)
 }
@@ -11,18 +11,21 @@ h2d_velocity(path)
 }
 \value{
 Returns a tibble with 6 columns.
-  'timestep': 'Print Times' in units defined in HYDRUS 'Time Information'.
-  'x': x-coordinate of HYDRUS mesh node.
-  'y': y-coordinate of HYDRUS mesh node.
-  'parameter': 'velocity' for velocities.
-  'value': numerical value for magnitude of velocity vector in units defined in HYDRUS [L T^{-1}]
-  'direction' numerical value for direction of velocity vector
+  'timestep': 'Print Times' in units defined in HYDRUS 'Time Information',
+  'x': x-coordinate of mesh node,
+  'y': y-coordinate of mesh node,
+  'parameter': 'velocity' for velocities,
+  'value': numerical value for magnitude of velocity vector in units defined in HYDRUS [L T^{-1}],
+  'direction' numerical value for direction of velocity vector.
 }
 \description{
 This function imports velocity data from a simulation successfully run in HYDRUS 2D.
 Use 'h3d_' functions to import HYDRUS 3D results.
 Simulation results ('Mesh Information' and 'Velocities') have to be exported to ASCII
 prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
+}
+\examples{
+  h2d_velocity(path = "data")
 }
 \references{
 https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf

@@ -9,11 +9,11 @@
 #'   IO
 #' @return
 #'   Returns a tibble with 5 columns.
-#'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information'.
-#'   'x': x-coordinate of HYDRUS mesh node.
-#'   'y': y-coordinate of HYDRUS mesh node.
-#'   'parameter': 'velocity' for velocities.
-#'   'value': numerical value for magnitude of temperature in units defined in HYDRUS [Q]
+#'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information',
+#'   'x': x-coordinate of mesh node,
+#'   'y': y-coordinate of mesh node,
+#'   'parameter': 'temperature' for temperatures,
+#'   'value': numerical value in units defined in HYDRUS [Q].
 #' @examples
 #'   h2d_temperature(path = "data")
 #' @references
@@ -75,41 +75,35 @@ h2d_temperature <- function(path) {
   # import data
   temperatureImport <-
     # read HYDRUS output
-    velocityFile %>%
+    temperatureFile %>%
     readChar(., nchars = file.info(.)$size) %>%
     str_replace_all(pattern = " ", "\r\n") %>%
     read_csv(col_names = "value") %>%
-    # extract timestep information
+    # extreact timestep information
     mutate(timestep = ifelse(value %in% "Time", lead(value, 2), NA)) %>%
     fill(timestep) %>%
-    # extract velocity vector components
-    mutate(component = case_when(
-      value %in% "first" ~ "value",
-      value %in% "second" ~ "direction",
-      TRUE ~ NA_character_)) %>%
-    fill(component) %>%
     # remove non-data rows
-    mutate(remove = ifelse(lag(value, 2) %in% "Time", TRUE, FALSE),
-           remove = ifelse(value %in% c("Velocity", "Time", "first", "second", "component", "-", "="), TRUE, remove))  %>%
+    mutate(remove = ifelse(value %in% "Time", TRUE, FALSE),
+           remove = ifelse(lag(value, 1) %in% "Time", TRUE, remove),
+           remove = ifelse(lag(value, 2) %in% "Time", TRUE, remove))  %>%
     filter(!remove) %>%
     select(-remove) %>%
-    # add nodeID information
-    group_by(timestep, component) %>%
-    mutate(nodeID = row_number(timestep)) %>%
-    ungroup() %>%
-    # spread componets
-    spread(key = component, value = value) %>%
     # parse to numeric
     mutate(timestep = as.numeric(timestep),
            value = as.numeric(value),
-           direction = as.numeric(direction),
-           parameter = "velocity")
+           parameter = "temperature") %>%
+    # add nodeID information %>%
+    group_by(timestep) %>%
+    mutate(nodeID = row_number(timestep)) %>%
+    ungroup()
   #
   # join with node coordinates
-  velocityData =
-    velocityImport %>%
+  temperatureData =
+    temperatureImport %>%
     left_join(nodeCoords,
               by = "nodeID") %>%
-    select(timestep, x, y, parameter, value, direction)
+    select(timestep, x, y, parameter, value)
+  #
+  temperatureData
 }
 #~~~~~~~~

@@ -2,7 +2,7 @@
 % Please edit documentation in R/h2d_vwc.R
 \name{h2d_vwc}
 \alias{h2d_vwc}
-\title{Import water content data from HYDRUS output}
+\title{Import water content data from HYDRUS 2D output}
 \usage{
 h2d_vwc(path)
 }
@@ -11,17 +11,20 @@ h2d_vwc(path)
 }
 \value{
 Returns a tibble with 5 columns.
-  'timestep': 'Print Times' in units defined in HYDRUS 'Time Information'.
-  'x': x-coordinate of HYDRUS mesh node.
-  'y': y-coordinate of HYDRUS mesh node.
-  'parameter': 'vwc' for volumetric water content.
-  'value': numerical value in units defined in HYDRUS (dimensionless for VWC)
+  'timestep': 'Print Times' in units defined in HYDRUS 'Time Information',
+  'x': x-coordinate of mesh node,
+  'y': y-coordinate of mesh node,
+  'parameter': 'vwc' for volumetric water content,
+  'value': numerical value in units defined in HYDRUS [-].
 }
 \description{
 This function imports volumentric water content (VWC) data from a simulation successfully run in HYDRUS 2D.
 Use 'h3d_' functions to import HYDRUS 3D results.
 Simulation results ('Mesh Information' and 'Water Contents') have to be exported to ASCII
 prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
+}
+\examples{
+  h2d_vwc(path = "data")
 }
 \references{
 https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
