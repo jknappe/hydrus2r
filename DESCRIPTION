@@ -1,4 +1,4 @@
-Package: hydrusImport
+Package: hydrus2r
 Title: Import HYDRUS 2D/3D output files into R
 Version: 0.0.3
 Date: 2018-04-24
@@ -16,7 +16,7 @@ Imports:
   tibble
 License: MIT
 URL:
-  http://janknappe.com/hydrusImport
+  http://janknappe.com/hydrus2r
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1

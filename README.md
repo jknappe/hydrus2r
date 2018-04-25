@@ -1,11 +1,11 @@
-# hydrusImport
+# hydrus2r
 
 > Import HYDRUS 2D/3D simulation results into R using functions made available in this R package.
 
 ## Installation
 
 ```r
-devtools::install_github("jknappe/hydrusImport")
+devtools::install_github("jknappe/hydrus2r")
 ```
 
 ## Usage
@@ -13,14 +13,14 @@ devtools::install_github("jknappe/hydrusImport")
 ### Load the package
 
 ```r
-library(hydrusImport)
+library(hydrus2r)
 ```
 
 ### Export data from HYDRUS 2D/3D
 
 After successfully running a simulation in HYDRUS 2D/3D, export the results to ASCII using the HYDRUS 2D/3D GUI.
 
-<img src = "http://www.janknappe.com/assets/img/github/hydrusImport-savingToAscii.gif" alt = "HYDRUS: Save results to ASCII"/>
+<img src = "http://www.janknappe.com/hydrus2r/docs/hydrus2r-savingToAscii.gif" alt = "HYDRUS: Save results to ASCII"/>
 
 ### Import mesh data
 
