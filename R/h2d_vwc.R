@@ -72,9 +72,9 @@ h2d_vwc <- function(path) {
   nodeCoords <-
     h2d_nodes(path = path)
   #
-  # import VWC data
+  # import data
   vwcImport <-
-    # read HYDRUS output file and split by word into tibble
+    # read HYDRUS output
     vwcFile %>%
     readChar(., nchars = file.info(.)$size) %>%
     str_replace_all(pattern = " ", "\r\n") %>%

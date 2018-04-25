@@ -68,9 +68,9 @@ h2d_head <- function(path) {
   nodeCoords <-
     h2d_nodes(path = path)
   #
-  # import VWC data
+  # import data
   headImport <-
-    # read HYDRUS output file and split by word into tibble
+    # read HYDRUS output
     headFile %>%
     readChar(., nchars = file.info(.)$size) %>%
     str_replace_all(pattern = " ", "\r\n") %>%

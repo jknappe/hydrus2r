@@ -1,22 +1,21 @@
-#' Import velocity data from HYDRUS output
+#' Import temperature data from HYDRUS 2D output
 #'
-#' This function imports velocity data from a simulation successfully run in HYDRUS 2D.
+#' This function imports temperature data from a simulation successfully run in HYDRUS 2D.
 #' Use 'h3d_' functions to import HYDRUS 3D results.
-#' Simulation results ('Mesh Information' and 'Velocities') have to be exported to ASCII
+#' Simulation results ('Mesh Information' and 'Temperatures') have to be exported to ASCII
 #' prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
-#' @param path Path to HYDRUS 2D project containing 'MESHTRIA.TXT' and 'V.TXT'.
+#' @param path Path to HYDRUS 2D project containing 'MESHTRIA.TXT' and 'TEMP.TXT'.
 #' @keywords
 #'   IO
 #' @return
-#'   Returns a tibble with 6 columns.
+#'   Returns a tibble with 5 columns.
 #'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information'.
 #'   'x': x-coordinate of HYDRUS mesh node.
 #'   'y': y-coordinate of HYDRUS mesh node.
 #'   'parameter': 'velocity' for velocities.
-#'   'value': numerical value for magnitude of velocity vector in units defined in HYDRUS [L T^{-1}]
-#'   'direction' numerical value for direction of velocity vector
+#'   'value': numerical value for magnitude of temperature in units defined in HYDRUS [Q]
 #' @examples
-#'   h2d_velocity(path = "data")
+#'   h2d_temperature(path = "data")
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author
@@ -25,7 +24,7 @@
 #'   dplyr tidyr stringr readr tibble
 #' @export
 
-h2d_velocity <- function(path) {
+h2d_temperature <- function(path) {
   #
   # Preamble
   # ~~~~~~~~~~~~~~~~
@@ -41,13 +40,13 @@ h2d_velocity <- function(path) {
     }
   #
   # path name of results file
-  velocityFile <-
+  temperatureFile <-
     if (substring(path, nchar(path)) == "/") {
       # path provided with trailing '/'
-      paste0(path, "V.TXT")
+      paste0(path, "TEMP.TXT")
     } else {
       # path provided without trailing '/'
-      paste0(path, "/V.TXT")
+      paste0(path, "/TEMP.TXT")
     }
   #
   # Error handling
@@ -62,8 +61,8 @@ h2d_velocity <- function(path) {
     stop("HYDRUS project folder does not contain mesh information. Export mesh information through the HYDRUS GUI.")
   }
   # simulation results must exist in the project folder
-  if (!file.exists(velocityFile)) {
-    stop("HYDRUS project folder does not contain velocity data. Export simulation results through the HYDRUS GUI.")
+  if (!file.exists(temperatureFile)) {
+    stop("HYDRUS project folder does not contain temperature data. Export simulation results through the HYDRUS GUI.")
   }
   #
   # Function
@@ -73,9 +72,9 @@ h2d_velocity <- function(path) {
   nodeCoords <-
     h2d_nodes(path = path)
   #
-  # import VWC data
-  velocityImport <-
-    # read HYDRUS output file and split by word into tibble
+  # import data
+  temperatureImport <-
+    # read HYDRUS output
     velocityFile %>%
     readChar(., nchars = file.info(.)$size) %>%
     str_replace_all(pattern = " ", "\r\n") %>%

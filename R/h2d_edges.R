@@ -67,7 +67,7 @@ h2d_edges <- function(path) {
                     x = col_character(),
                     y = col_character()
                   )) )
-  # extract node corrdinates
+  # extract corrdinates
   edgeCoords <-
     edgeInput %>%
     mutate(type = case_when(edgeID == "Edges"     ~ "edge",

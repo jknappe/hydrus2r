@@ -60,7 +60,7 @@ h2d_nodes <- function(path) {
                     x = col_character(),
                     y = col_character()
                   )) )
-  # extract node corrdinates
+  # extract corrdinates
   nodeCoords <-
     nodeInput %>%
     mutate(nonNodes = ifelse(nodeID == "Edges", FALSE, NA)) %>%
