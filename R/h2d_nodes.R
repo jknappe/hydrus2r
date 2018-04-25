@@ -1,4 +1,4 @@
-#' Import node coordinates from HYDRUS mesh
+#' Import node coordinates from HYDRUS 2D mesh
 #'
 #' This function imports node coordinates from a simulation successfully run in HYDRUS 2D.
 #' Use 'h3d_' functions to import HYDRUS 3D results.

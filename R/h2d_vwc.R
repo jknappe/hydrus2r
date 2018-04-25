@@ -1,4 +1,4 @@
-#' Import water content data from HYDRUS output
+#' Import water content data from HYDRUS 2D output
 #'
 #' This function imports volumentric water content (VWC) data from a simulation successfully run in HYDRUS 2D.
 #' Use 'h3d_' functions to import HYDRUS 3D results.
