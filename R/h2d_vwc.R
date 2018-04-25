@@ -98,7 +98,7 @@ h2d_vwc <- function(path) {
     ungroup()
   #
   # join with node coordinates
-  vwcData =
+  vwcData <-
     vwcImport %>%
     left_join(nodeCoords,
               by = "nodeID") %>%

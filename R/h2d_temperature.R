@@ -98,7 +98,7 @@ h2d_temperature <- function(path) {
     ungroup()
   #
   # join with node coordinates
-  temperatureData =
+  temperatureData <-
     temperatureImport %>%
     left_join(nodeCoords,
               by = "nodeID") %>%

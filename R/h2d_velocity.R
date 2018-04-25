@@ -107,7 +107,7 @@ h2d_velocity <- function(path) {
            parameter = "velocity")
   #
   # join with node coordinates
-  velocityData =
+  velocityData <-
     velocityImport %>%
     left_join(nodeCoords,
               by = "nodeID") %>%

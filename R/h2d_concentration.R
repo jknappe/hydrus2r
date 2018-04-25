@@ -100,7 +100,7 @@ h2d_concentration <- function(path) {
     bind_rows()
   #
   # join with node coordinates
-  result =
+  result <-
     input %>%
     left_join(nodes,
               by = "nodeID") %>%
