@@ -14,8 +14,6 @@
 #'   'parameter': 'velocity' for velocities,
 #'   'value': numerical value for magnitude of velocity vector in units defined in HYDRUS [L T^{-1}],
 #'   'direction' numerical value for direction of velocity vector.
-#' @examples
-#'   h2d_velocity(path = "data")
 #' @family
 #'   HYDRUS 2D functions
 #' @references
@@ -25,6 +23,13 @@
 #' @import
 #'   dplyr tidyr stringr readr tibble
 #' @export
+#' @examples
+#' h2d_velocity(path = "data")
+#'
+#' \dontrun{
+#' h2d_velocity(path = "V.TXT")
+#' h2d_velocity(path = "Project/V.TXT")
+#' }
 
 h2d_velocity <- function(path) {
   #

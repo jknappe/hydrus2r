@@ -13,8 +13,6 @@
 #'   'y': y-coordinate of mesh node,
 #'   'parameter': 'temperature' for temperatures,
 #'   'value': numerical value in units defined in HYDRUS [Q].
-#' @examples
-#'   h2d_temperature(path = "data")
 #' @family
 #'   HYDRUS 2D functions
 #' @references
@@ -24,6 +22,13 @@
 #' @import
 #'   dplyr tidyr stringr readr tibble
 #' @export
+#' @examples
+#' h2d_temperature(path = "data")
+#'
+#' \dontrun{
+#' h2d_temperature(path = "TEMP.TXT")
+#' h2d_temperature(path = "Project/TEMP.TXT")
+#' }
 
 h2d_temperature <- function(path) {
   #

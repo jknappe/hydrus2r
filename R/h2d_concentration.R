@@ -15,8 +15,6 @@
 #'   'parameter': 'concentrationX' for concentration (concentration1,
 #'     concentration2, ..., concentration7),
 #'   'value': numerical value in units defined in HYDRUS [-].
-#' @examples
-#'   h2d_concentration(path = "data")
 #' @family
 #'   HYDRUS 2D functions
 #' @references
@@ -26,6 +24,13 @@
 #' @import
 #'   dplyr tidyr stringr readr tibble purrr
 #' @export
+#' @examples
+#' h2d_concentratio(path = "data")
+#'
+#' \dontrun{
+#' h2d_concentratio(path = "CONC1.TXT")
+#' h2d_concentratio(path = "Project/CONC1.TXT")
+#' }
 
 h2d_concentration <- function(path) {
   #

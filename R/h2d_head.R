@@ -13,8 +13,6 @@
 #'   'y': y-coordinate of mesh node,
 #'   'parameter': 'head' for pressure head,
 #'   'value': numerical value in units defined in HYDRUS [L].
-#' @examples
-#'   h2d_head(path = "data")
 #' @family
 #'   HYDRUS 2D functions
 #' @references
@@ -24,6 +22,13 @@
 #' @import
 #'   dplyr tidyr stringr readr tibble
 #' @export
+#' @examples
+#' h2d_head(path = "data")
+#'
+#' \dontrun{
+#' h2d_head(path = "H.TXT")
+#' h2d_head(path = "Project/H.TXT")
+#' }
 
 h2d_head <- function(path) {
   #

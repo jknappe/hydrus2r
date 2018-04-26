@@ -11,8 +11,6 @@
 #'   'nodeID': nodal number,
 #'   'x': x-coordinate of mesh node,
 #'   'y': y-coordinate of mesh node.
-#' @examples
-#'   h2d_nodes(path = "data")
 #' @family
 #'   HYDRUS 2D functions
 #' @references
@@ -20,6 +18,13 @@
 #' @author
 #'   Jan Knappe, \email{jan.knappe@@gmail.com}
 #' @export
+#' @examples
+#' h2d_nodes(path = "data")
+#'
+#' \dontrun{
+#' h2d_nodes(path = "MESHTRIA.TXT")
+#' h2d_nodes(path = "Project/MESHTRIA.TXT")
+#' }
 
 h2d_nodes <- function(path) {
   #

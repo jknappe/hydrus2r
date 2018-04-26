@@ -26,7 +26,12 @@ prior to running this function using the HYDRUS 2D/3D GUI ('Results' -->
 'Convert Output to ASCII').
 }
 \examples{
-  h2d_velocity(path = "data")
+h2d_velocity(path = "data")
+
+\dontrun{
+h2d_velocity(path = "V.TXT")
+h2d_velocity(path = "Project/V.TXT")
+}
 }
 \references{
 https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf

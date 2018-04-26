@@ -16,8 +16,6 @@
 #'   'lTriangle': number of the left triangle,
 #'   'rTriangle': number of the right triangle.
 #'   Note: 'roppNode', 'lTriangle', and 'lTriangle' are not always defined
-#' @examples
-#'   h2d_edges(path = "data")
 #' @family
 #'   HYDRUS 2D functions
 #' @references
@@ -25,6 +23,13 @@
 #' @author
 #'   Jan Knappe, \email{jan.knappe@@gmail.com}
 #' @export
+#' @examples
+#' h2d_edges(path = "data")
+#'
+#' \dontrun{
+#' h2d_edges(path = "MESHTRIA.TXT")
+#' h2d_edges(path = "Project/MESHTRIA.TXT")
+#' }
 
 h2d_edges <- function(path) {
   #

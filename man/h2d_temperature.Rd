@@ -25,7 +25,12 @@ prior to running this function using the HYDRUS 2D/3D GUI ('Results' -->
 'Convert Output to ASCII').
 }
 \examples{
-  h2d_temperature(path = "data")
+h2d_temperature(path = "data")
+
+\dontrun{
+h2d_temperature(path = "TEMP.TXT")
+h2d_temperature(path = "Project/TEMP.TXT")
+}
 }
 \references{
 https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf

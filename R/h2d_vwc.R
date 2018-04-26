@@ -13,8 +13,6 @@
 #'   'y': y-coordinate of mesh node,
 #'   'parameter': 'vwc' for volumetric water content,
 #'   'value': numerical value in units defined in HYDRUS [-].
-#' @examples
-#'   h2d_vwc(path = "data")
 #' @family
 #'   HYDRUS 2D functions
 #' @references
@@ -24,6 +22,13 @@
 #' @import
 #'   dplyr tidyr stringr readr tibble
 #' @export
+#' @examples
+#' h2d_vwc(path = "data")
+#'
+#' \dontrun{
+#' h2d_vwc(path = "TH.TXT")
+#' h2d_vwc(path = "Project/TH.TXT")
+#' }
 
 h2d_vwc <- function(path) {
   #
