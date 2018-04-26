@@ -1,0 +1,23 @@
+#' hydrus2r: Importing HYDRUS 2D/3D simulation results into R.
+#'
+#' Import HYDRUS 2D/3D simulation results from output TXT files into R as data
+#' frames. HYDRUS 2D/3D simulation results have to be exported within the
+#' HYDRUS GUI and must include mesh information.
+#'
+#' @section Quick reference:
+#' Functions for importing mesh information and simulation results from HYDRUS
+#' 2D projects are prefixed with `h2d_`, functions for importing mesh
+#' information and simulation results from HYDRUS 3D projects are prefixed
+#' with `h3d_`.
+#'
+#' Mesh information include: nodes, edges, triangles.
+#' Simulation results include: pressure heads, volumetric water contents,
+#' velocities, concentrations, temperatures, particle trajectories.
+#'
+#' @section Full documentation:
+#' Full documentation for this package is available at
+#' http://www.janknappe.com/hydrus2r/
+#'
+#' @docType package
+#' @name hydrus2r
+NULL
