@@ -50,29 +50,30 @@ h2d_nodes <- function(path) {
   # Function
   # ~~~~~~~~~~~~~~~~
   #
-  # create column names
-  nodeCols <-  c("nodeID", "x", "y")
-  #
   # import meshFile
-  suppressWarnings( # ignore parsing warnings
-    nodeInput <-
-      read_table2(meshFile, skip = 1, col_names = nodeCols,
-                  col_types = cols(
-                    nodeID = col_character(),
-                    x = col_character(),
-                    y = col_character()
-                  )) )
-  # extract corrdinates
-  nodeCoords <-
-    nodeInput %>%
-    mutate(nonNodes = ifelse(nodeID == "Edges", FALSE, NA)) %>%
-    fill(nonNodes) %>%
-    filter(is.na(nonNodes)) %>%
-    select(-nonNodes) %>%
-    mutate(nodeID = as.integer(nodeID),
-           x      = as.numeric(x),
-           y      = as.numeric(y))
+  mesh <-
+    # read HYDRUS output
+    meshFile %>%
+    readChar(., nchars = file.info(.)$size) %>%
+    str_replace_all(pattern = " ", "\r\n") %>%
+    read_csv(col_names = "value",
+             col_types = cols(value = col_character())) %>%
+    slice(6:nrow(.))
   #
-  nodeCoords
+  # extract node information
+  nodes <-
+    mesh %>%
+    mutate(remove = ifelse(value == "Edges", TRUE, NA)) %>%
+    fill(remove, .direction = "down") %>%
+    filter(is.na(remove)) %>%
+    select(-remove) %>%
+    mutate(columnDummy = rep(c("node", "x", "y"), length.out = n()),
+           nodeID = cumsum(columnDummy == "node")) %>%
+    filter(columnDummy %in% c("x", "y")) %>%
+    spread(key = columnDummy, value = value) %>%
+    mutate(nodeID = as.integer(nodeID)) %>%
+    mutate_if(is.character, as.numeric)
+  #
+  nodes
 }
 #~~~~~~~~

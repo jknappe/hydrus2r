@@ -55,32 +55,31 @@ h2d_edges <- function(path) {
   # Function
   # ~~~~~~~~~~~~~~~~
   #
-  # create column names
-  edgeCols <-  c("edgeID", "startNode", "endNode", "loppNode", "roppNode", "lTriangle", "rTriangle")
-  #
   # import meshFile
-  suppressWarnings( # ignore parsing warnings
-    edgeInput <-
-      read_table2(meshFile, skip = 1, col_names = edgeCols,
-                  col_types = cols(
-                    nodeID = col_character(),
-                    x = col_character(),
-                    y = col_character()
-                  )) )
-  # extract corrdinates
-  edgeCoords <-
-    edgeInput %>%
-    mutate(type = case_when(edgeID == "Edges"     ~ "edge",
-                            edgeID == "***"       ~ "end",
-                            edgeID == "Triangles" ~ "triangle",
-                            edgeID == "Nodes"     ~ "nodes",
-                            TRUE ~ NA_character_)) %>%
-    fill(type) %>%
-    filter(type %in% "edge") %>%
-    slice(4:nrow(.)) %>%
-    select(-type) %>%
-    mutate_if(is.character, as.integer)
+  mesh <-
+    # read HYDRUS output
+    meshFile %>%
+    readChar(., nchars = file.info(.)$size) %>%
+    str_replace_all(pattern = " ", "\r\n") %>%
+    read_csv(col_names = "value",
+             col_types = cols(value = col_character())) %>%
+    slice(6:nrow(.))
   #
-  edgeCoords
+  # extract edge information
+  edges <-
+    mesh %>%
+    mutate(remove = ifelse(value == "Edges", TRUE, NA)) %>%
+    fill(remove, .direction = "up") %>%
+    filter(is.na(remove)) %>%
+    select(-remove) %>%
+    slice(5:(nrow(.) - 5)) %>%
+    mutate(columnDummy = rep(c("edge", "startNode", "endNode", "loppNode"), length.out = n()),
+           edgeID = cumsum(columnDummy == "edge")) %>%
+    filter(columnDummy %in% c("startNode", "endNode", "loppNode")) %>%
+    spread(key = columnDummy, value = value) %>%
+    mutate(edgeID = as.integer(edgeID)) %>%
+    mutate_if(is.character, as.numeric)
+  #
+  edges
 }
 #~~~~~~~~
