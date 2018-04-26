@@ -1,12 +1,11 @@
 #' Import temperature data from HYDRUS 2D output
 #'
-#' This function imports temperature data from a simulation successfully run in HYDRUS 2D.
-#' Use 'h3d_' functions to import HYDRUS 3D results.
-#' Simulation results ('Mesh Information' and 'Temperatures') have to be exported to ASCII
-#' prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
+#' This function imports temperature data from a simulation successfully run in
+#' HYDRUS 2D. Use 'h3d_' functions to import HYDRUS 3D results. Simulation
+#' results ('Mesh Information' and 'Temperatures') have to be exported to ASCII
+#' prior to running this function using the HYDRUS 2D/3D GUI ('Results' -->
+#' 'Convert Output to ASCII').
 #' @param path Path to HYDRUS 2D project containing 'MESHTRIA.TXT' and 'TEMP.TXT'.
-#' @keywords
-#'   IO
 #' @return
 #'   Returns a tibble with 5 columns.
 #'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information',
@@ -16,6 +15,8 @@
 #'   'value': numerical value in units defined in HYDRUS [Q].
 #' @examples
 #'   h2d_temperature(path = "data")
+#' @family
+#'   HYDRUS 2D functions
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author

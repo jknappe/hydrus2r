@@ -1,12 +1,11 @@
 #' Import edge coordinates from HYDRUS 2D mesh
 #'
-#' This function imports edge coordinates from a simulation successfully run in HYDRUS 2D.
-#' Use 'h3d_' functions to import HYDRUS 3D results.
-#' Simulation results (including mesh information) have to be exported to ASCII
-#' prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
+#' This function imports edge coordinates from a simulation successfully run in
+#' HYDRUS 2D. Use 'h3d_' functions to import HYDRUS 3D results. Simulation
+#' results (including mesh information) have to be exported to ASCII prior to
+#' running this function using the HYDRUS 2D/3D GUI ('Results' -->
+#' 'Convert Output to ASCII').
 #' @param path Path to HYDRUS 2D project containing 'MESHTRIA.TXT'.
-#' @keywords
-#'   IO
 #' @return
 #'   Returns a tibble with 7 columns.
 #'   'edgeID': edge number,
@@ -19,6 +18,8 @@
 #'   Note: 'roppNode', 'lTriangle', and 'lTriangle' are not always defined
 #' @examples
 #'   h2d_edges(path = "data")
+#' @family
+#'   HYDRUS 2D functions
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author

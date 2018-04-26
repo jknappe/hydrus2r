@@ -19,10 +19,11 @@ Returns a tibble with 6 columns.
   'direction' numerical value for direction of velocity vector.
 }
 \description{
-This function imports velocity data from a simulation successfully run in HYDRUS 2D.
-Use 'h3d_' functions to import HYDRUS 3D results.
-Simulation results ('Mesh Information' and 'Velocities') have to be exported to ASCII
-prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
+This function imports velocity data from a simulation successfully run in
+HYDRUS 2D. Use 'h3d_' functions to import HYDRUS 3D results. Simulation
+results ('Mesh Information' and 'Velocities') have to be exported to ASCII
+prior to running this function using the HYDRUS 2D/3D GUI ('Results' -->
+'Convert Output to ASCII').
 }
 \examples{
   h2d_velocity(path = "data")
@@ -30,7 +31,12 @@ prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Conver
 \references{
 https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 }
+\seealso{
+Other HYDRUS 2D functions: \code{\link{h2d_concentration}},
+  \code{\link{h2d_edges}}, \code{\link{h2d_head}},
+  \code{\link{h2d_nodes}}, \code{\link{h2d_temperature}},
+  \code{\link{h2d_vwc}}
+}
 \author{
 Jan Knappe, \email{jan.knappe@gmail.com}
 }
-\keyword{IO}

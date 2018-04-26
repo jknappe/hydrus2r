@@ -1,12 +1,11 @@
 #' Import node coordinates from HYDRUS 2D mesh
 #'
-#' This function imports node coordinates from a simulation successfully run in HYDRUS 2D.
-#' Use 'h3d_' functions to import HYDRUS 3D results.
-#' Simulation results (including mesh information) have to be exported to ASCII
-#' prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
+#' This function imports node coordinates from a simulation successfully run in
+#' HYDRUS 2D. Use 'h3d_' functions to import HYDRUS 3D results. Simulation
+#' results (including mesh information) have to be exported to ASCII prior to
+#' running this function using the HYDRUS 2D/3D GUI ('Results' -->
+#' 'Convert Output to ASCII').
 #' @param path Path to HYDRUS 2D project containing 'MESHTRIA.TXT'.
-#' @keywords
-#'   IO
 #' @return
 #'   Returns a tibble with 3 columns.
 #'   'nodeID': nodal number,
@@ -14,6 +13,8 @@
 #'   'y': y-coordinate of mesh node.
 #' @examples
 #'   h2d_nodes(path = "data")
+#' @family
+#'   HYDRUS 2D functions
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author

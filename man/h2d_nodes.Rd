@@ -16,10 +16,11 @@ Returns a tibble with 3 columns.
   'y': y-coordinate of mesh node.
 }
 \description{
-This function imports node coordinates from a simulation successfully run in HYDRUS 2D.
-Use 'h3d_' functions to import HYDRUS 3D results.
-Simulation results (including mesh information) have to be exported to ASCII
-prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
+This function imports node coordinates from a simulation successfully run in
+HYDRUS 2D. Use 'h3d_' functions to import HYDRUS 3D results. Simulation
+results (including mesh information) have to be exported to ASCII prior to
+running this function using the HYDRUS 2D/3D GUI ('Results' -->
+'Convert Output to ASCII').
 }
 \examples{
   h2d_nodes(path = "data")
@@ -27,7 +28,12 @@ prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Conver
 \references{
 https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 }
+\seealso{
+Other HYDRUS 2D functions: \code{\link{h2d_concentration}},
+  \code{\link{h2d_edges}}, \code{\link{h2d_head}},
+  \code{\link{h2d_temperature}},
+  \code{\link{h2d_velocity}}, \code{\link{h2d_vwc}}
+}
 \author{
 Jan Knappe, \email{jan.knappe@gmail.com}
 }
-\keyword{IO}

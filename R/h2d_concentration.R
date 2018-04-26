@@ -1,21 +1,24 @@
 #' Import concentration data from HYDRUS 2D output
 #'
-#' This function imports concentration data from a simulation successfully run in HYDRUS 2D.
-#' Use 'h3d_' functions to import HYDRUS 3D results.
-#' Simulation results ('Mesh Information' and 'Concentrations') have to be exported to ASCII
-#' prior to running this function using the HYDRUS 2D/3D GUI ('Results' --> 'Convert Output to ASCII').
-#' @param path Path to HYDRUS 2D project containing 'MESHTRIA.TXT' and 'CONC<n>.TXT' with <n> being 1, 2, ..., 7.
-#' @keywords
-#'   IO
+#' This function imports concentration data from a simulation successfully run
+#' in HYDRUS 2D. Use 'h3d_' functions to import HYDRUS 3D results. Simulation
+#' results ('Mesh Information' and 'Concentrations') have to be exported to
+#' ASCII prior to running this function using the HYDRUS 2D/3D GUI
+#' ('Results' --> 'Convert Output to ASCII').
+#' @param path Path to HYDRUS 2D project containing 'MESHTRIA.TXT' and
+#'   'CONC<n>.TXT' with <n> being 1, 2, ...,
 #' @return
 #'   Returns a tibble with 5 columns.
 #'   'timestep': 'Print Times' in units defined in HYDRUS 'Time Information',
 #'   'x': x-coordinate of mesh node,
 #'   'y': y-coordinate of mesh node,
-#'   'parameter': 'concentrationX' for concentration (concentration1, concentration2, ..., concentration7),
+#'   'parameter': 'concentrationX' for concentration (concentration1,
+#'     concentration2, ..., concentration7),
 #'   'value': numerical value in units defined in HYDRUS [-].
 #' @examples
 #'   h2d_concentration(path = "data")
+#' @family
+#'   HYDRUS 2D functions
 #' @references
 #'   https://www.pc-progress.com/downloads/Pgm_Hydrus3D2/HYDRUS3D%20User%20Manual.pdf
 #' @author
