@@ -98,7 +98,7 @@ h2d_velocity <- function(path) {
     group_by(timestep, component) %>%
     mutate(nodeID = row_number(timestep)) %>%
     ungroup() %>%
-    # spread componets
+    # spread components
     spread(key = component, value = value) %>%
     # parse to numeric
     mutate(timestep = as.numeric(timestep),
